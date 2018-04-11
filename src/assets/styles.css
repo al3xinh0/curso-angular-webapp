@@ -1,0 +1,16 @@
+#content {
+    border: 1px solid #eee;
+    margin-top: 30px;
+    background: white;
+    border-radius: 2px;
+    box-shadow: 0px 2px 5px gray;
+    padding: 0px;
+}
+
+#header{
+    border-radius: 2px;
+    background: #E03137;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+}
