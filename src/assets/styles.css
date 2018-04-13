@@ -14,3 +14,26 @@
     font-size: 40px;
     font-weight: bold;
 }
+
+#main .jumbotron{
+    padding: 50px;
+    margin-top: 30px;
+    border-radius: 20px;
+}
+
+#footer{
+    margin-top: 30px;
+    padding-top: 10px;
+    border-top: 1px solid #eee;
+    color: gray;
+}
+
+.activado{
+    text-decoration: none !important;
+    background: #E03137 !important;
+    border-bottom: 4px solid yellowgreen !important;
+}
+
+#formProductAdd label{
+    margin-top: 10px;
+}

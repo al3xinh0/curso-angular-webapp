@@ -1,0 +1,23 @@
+<h3>{{titulo}}</h3>
+<hr>
+<form #formProductAdd="ngForm" id="formProductAdd" (ngSubmit)="agregarProducto()" class="col-lg-6">
+    <label>
+        Nombre: 
+        <span *ngIf="!nombre.valid && nombre.touched" class="label label-danger">El campo es obligatorio</span>
+    </label>
+    <input type="text" #nombre="ngModel" name="nombre" [(ngModel)]="producto.nombre" required class="form-control" />
+    <label>
+        Descripción:
+        <span *ngIf="!descripcion.valid && descripcion.touched" class="label label-danger">El campo es obligatorio</span>
+    </label>
+    <textarea #descripcion="ngModel" name="descripcion" [(ngModel)]="producto.descripcion" required class="form-control"></textarea>
+    <label>
+        Precio $USD:
+        <span *ngIf="!precio.valid && precio.touched" class="label label-danger">El campo NO es correcto</span>
+    </label>
+    <input type="text" #precio="ngModel" name="precio" [(ngModel)]="producto.precio" required pattern="[0-9]+" class="form-control" />
+    <label>Imagen: </label>
+    <input type="file" #imagen="ngModel" name="imagen" [(ngModel)]="producto.imagen" class="form-control" />
+    <br>
+    <input type="submit" value="{{titulo}}" [disabled]="!formProductAdd.form.valid" class="btn btn-success" />
+</form>
