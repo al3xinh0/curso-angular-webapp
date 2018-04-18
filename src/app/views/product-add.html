@@ -17,7 +17,11 @@
     </label>
     <input type="text" #precio="ngModel" name="precio" [(ngModel)]="producto.precio" required pattern="[0-9]+" class="form-control" />
     <label>Imagen: </label>
-    <input type="file" #imagen="ngModel" name="imagen" [(ngModel)]="producto.imagen" class="form-control" />
+    <!-- SOLO CARGA SI ESTÁ EDITANDO EL REGISTRO -->
+    <div *ngIf="esEdicion" style="text-align: center;">
+            <img src="http://localhost:9999/curso-angular-backend/uploads/{{producto.imagen}}">
+    </div>
+    <input type="file" (change)="subirArchivos($event)" class="form-control" />
     <br>
     <input type="submit" value="{{titulo}}" [disabled]="!formProductAdd.form.valid" class="btn btn-success" />
 </form>

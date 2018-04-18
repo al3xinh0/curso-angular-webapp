@@ -4,12 +4,32 @@
     Cargando lista de productos...
 </div>
 <div *ngIf="productos">
-    <ul>
-        <li *ngFor="let producto of productos">
-            <strong>{{producto.id}} | {{producto.nombre}}</strong>
-            <p>{{producto.descripcion}}</p>
-            <p>USD$ {{producto.precio}}</p>
-            <p>{{producto.imagen}}</p>
-        </li>
-    </ul>
+    <div class="row">
+        <div div class="col-lg-3" *ngFor="let producto of productos">
+            <div class="thumbnail">
+                <div *ngIf="producto.imagen"class="imagenContainer">
+                    <img src="http://localhost:9999/curso-angular-backend/uploads/{{producto.imagen}}"
+                    class="imagenProducto">
+                </div>
+                <div *ngIf="!producto.imagen">
+                    <div class="imagenRelleno"></div>
+                </div>
+                <div class="caption">
+                    <h3>{{producto.id}} | {{producto.nombre}}</h3>
+                    <p>{{producto.descripcion}}</p>
+                    <p>USD$ {{producto.precio}}</p>
+                    <div class="botonesAccion" *ngIf="confirmado != producto.id">
+                        <a [routerLink]="['/product-detail', producto.id]" class="btn btn-warning">Ver</a>
+                        <a [routerLink]="['/product-edit', producto.id]" class="btn btn-primary">Editar</a>
+                        <a (click)="confirmarEliminacion(producto.id)" class="btn btn-danger">Eliminar</a>
+                    </div>
+                    <div class="botonesConfirmar" *ngIf="confirmado == producto.id">
+                        <p>¿Desea borrar este producto?</p>
+                        <a (click)="eliminarProducto(producto.id)" class="btn btn-danger">SI</a>
+                        <a (click)="cancelarEliminacion()" class="btn btn-lg btn-primary">NO</a>
+                    </div>
+                </div>
+            </div>            
+        </div>
+    </div>
 </div>

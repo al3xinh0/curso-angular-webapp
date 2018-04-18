@@ -37,3 +37,28 @@
 #formProductAdd label{
     margin-top: 10px;
 }
+
+.imagenContainer {
+    width: 100%;
+    overflow: hidden;
+}
+
+.imagenProducto {
+    height: 200px;
+    margin: 0px auto;
+    display: block;
+}
+
+.imagenRelleno {
+    background: red;
+    width: 100%;
+    height: 200px;
+}
+
+.botonesAccion {
+    text-align: center;
+}
+
+.botonesConfirmar {
+    text-align: center;
+}

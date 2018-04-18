@@ -13,6 +13,7 @@ import { Product } from '../models/product';
 export class ProductsListComponent {
     private titulo: string;
     private productos: Product[];
+    private confirmado;
 
     constructor(
         private _route: ActivatedRoute,
@@ -20,10 +21,38 @@ export class ProductsListComponent {
         private _productService: ProductService
     ) {
         this.titulo = 'Lista de Productos';
+        this.confirmado = null;
     }
 
     ngOnInit(): void {
         console.log('products-list.component.ts CARGADO!');
+        this.obtenerProductos();
+    }
+
+    confirmarEliminacion(id) {
+        this.confirmado = id;
+    }
+
+    cancelarEliminacion(){
+        this.confirmado = null;
+    }
+
+    eliminarProducto(id) {
+        this._productService.deleteProduct(id).subscribe(
+            response => {
+                if (response.code == 200) {
+                    this.obtenerProductos();
+                } else {
+                    alert('Error al borrar producto');
+                }
+            },
+            error => {
+                console.log(<any>error);
+            }
+        )
+    }
+
+    obtenerProductos() {
         this._productService.getProduct().subscribe(
             result => {
                 if (result.code != 200) {

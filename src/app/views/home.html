@@ -3,8 +3,8 @@
         <h2>{{titulo}}</h2>
         <p>Gestiona tus productos con la Aplicación Web SPA creada con Angular desde cero</p>
         <p>
-            <a href="#" class="btn btn-lg btn-primary">Ver Productos</a>
-            <a href="#" class="btn btn-lg btn-success">Añadir Productos</a>
+            <a [routerLink]="['/products-list']" class="btn btn-lg btn-primary">Ver Productos</a>
+            <a [routerLink]="['/product-add']" class="btn btn-lg btn-success">Añadir Productos</a>
         </p>
     </div>
 </div>
