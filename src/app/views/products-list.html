@@ -21,9 +21,9 @@
                     <div class="botonesAccion" *ngIf="confirmado != producto.id">
                         <a [routerLink]="['/product-detail', producto.id]" class="btn btn-warning">Ver</a>
                         <a [routerLink]="['/product-edit', producto.id]" class="btn btn-primary">Editar</a>
-                        <a (click)="confirmarEliminacion(producto.id)" class="btn btn-danger">Eliminar</a>
+                        <a (click)="mostrarSeccionHijo(); confirmarEliminacion(producto.id);" class="btn btn-danger">Eliminar</a>
                     </div>
-                    <div class="botonesConfirmar" *ngIf="confirmado == producto.id">
+                    <div class="botonesConfirmar" style="display: none;">
                         <p>¿Desea borrar este producto?</p>
                         <a (click)="eliminarProducto(producto.id)" class="btn btn-danger">SI</a>
                         <a (click)="cancelarEliminacion()" class="btn btn-lg btn-primary">NO</a>

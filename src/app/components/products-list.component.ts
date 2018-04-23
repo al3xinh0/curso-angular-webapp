@@ -4,6 +4,9 @@ import { Route } from '@angular/compiler/src/core';
 import { ProductService } from '../services/products.service';
 import { Product } from '../models/product';
 
+declare var jQuery:any;
+declare var $:any;
+
 @Component ({
     selector: 'products-list',
     templateUrl: '../views/products-list.html',
@@ -35,6 +38,7 @@ export class ProductsListComponent {
 
     cancelarEliminacion(){
         this.confirmado = null;
+        this.mostrarSeccionHijo();
     }
 
     eliminarProducto(id) {
@@ -65,5 +69,15 @@ export class ProductsListComponent {
                 console.log(<any>error);
             }
         );
+    }
+
+    mostrarSeccion() {
+        console.log('CLICK');
+        $('.botonesAccion').slideToggle();
+    }
+
+    mostrarSeccionHijo() {
+        console.log('CLICK');
+        $('.botonesConfirmar').slideToggle();
     }
 }
